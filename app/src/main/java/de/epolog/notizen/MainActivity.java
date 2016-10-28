@@ -26,8 +26,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
     public void getStartingText() {
         savefile = new File(folder, FILE_NAME);
         if (savefile.exists() && !savefile.isFile())
@@ -96,10 +94,6 @@ public class MainActivity extends AppCompatActivity {
 
         getStartingText();
     }
-
-
-
-
 
 
 
