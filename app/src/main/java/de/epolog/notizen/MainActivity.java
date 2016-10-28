@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
     public void getStartingText() {
         savefile = new File(folder, FILE_NAME);
         if (savefile.exists() && !savefile.isFile())
@@ -63,32 +64,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    /*@Override
-    public boolean onCreateOptionsMenu(Menu menu){
-        getMenuInflater().inflate(R.menu.menu, menu);         //activate when settings are ready
-        return true;
-    }
-
-
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.Options:
-
-                //startActivity(new Intent(MainActivity.this, SettingsActivity.class));          //input settings class here
-
-            case R.id.Info:
-
-                // info msgbox
-
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }*/
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -120,25 +95,7 @@ public class MainActivity extends AppCompatActivity {
         getDelegate().onStart();
 
         getStartingText();
-
-        /*long startHourMilli = 28800000, endHourMilli = 72000000;
-        long currentMilli= System.currentTimeMillis();
-
-        if(currentMilli >= startHourMilli && currentMilli < endHourMilli){
-            View someView = findViewById(R.id.activity_main);
-            View root = someView.getRootView();
-            root.setBackgroundColor(ContextCompat.getColor(this, R.color.white));                   //does not work yet :(
-            editText.setTextColor(ContextCompat.getColor(this, R.color.black));
-        } else {
-            View someView = findViewById(R.id.activity_main);
-            View root = someView.getRootView();
-            root.setBackgroundColor(ContextCompat.getColor(this, R.color.grey));
-            editText.setTextColor(ContextCompat.getColor(this, R.color.white));
-        }*/
-
-
     }
-
 
 
 
