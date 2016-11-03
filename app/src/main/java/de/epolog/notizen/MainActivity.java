@@ -148,11 +148,13 @@ public class MainActivity extends AppCompatActivity {
                 View root = someView.getRootView();
                 root.setBackgroundColor(ContextCompat.getColor(this, R.color.white));
                 editText.setTextColor(ContextCompat.getColor(this, R.color.black));
+                editText.setHintTextColor(ContextCompat.getColor(this, R.color.grey));
             } else{
                 View someView = findViewById(R.id.activity_main);
                 View root = someView.getRootView();
                 root.setBackgroundColor(ContextCompat.getColor(this, R.color.grey));
                 editText.setTextColor(ContextCompat.getColor(this, R.color.white));
+                editText.setHintTextColor(ContextCompat.getColor(this, R.color.hintgrey));
             }
     }
 

@@ -21,5 +21,6 @@
         android:maxLength="100"
         android:id="@+id/editText"
         android:textSize="18sp"
-        android:gravity="top" />
+        android:gravity="top"
+        android:hint="Schreibe deine Gedanken hier auf"/>
 </RelativeLayout>

@@ -16,5 +16,8 @@
     <item name="white" type="color">#FFFFFFFF</item>
     <item name="black" type="color">#FF0C0000</item>
     <item name="grey" type="color">#303030</item>
+    <item name="hintgrey" type="color">#7fffffff</item>
+
+
 
 </resources>
