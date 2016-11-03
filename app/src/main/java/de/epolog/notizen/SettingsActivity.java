@@ -34,11 +34,11 @@ public class SettingsActivity extends AppCompatActivity {
         long currentMilli = System.currentTimeMillis();
 
         if (currentMilli >= startHourMilli && currentMilli < endHourMilli) {
-            View someView = findViewById(R.id.activity_main);
+            View someView = findViewById(R.id.activity_settings);
             View root = someView.getRootView();
             root.setBackgroundColor(ContextCompat.getColor(this, R.color.white));
         } else {
-            View someView = findViewById(R.id.activity_main);
+            View someView = findViewById(R.id.activity_settings);
             View root = someView.getRootView();
             root.setBackgroundColor(ContextCompat.getColor(this, R.color.grey));
         }
