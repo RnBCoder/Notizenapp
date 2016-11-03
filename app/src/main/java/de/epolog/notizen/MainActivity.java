@@ -12,11 +12,13 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.Calendar;
 
 
@@ -27,34 +29,35 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText editText;
     private File folder;
-    private File savefile;
+    private File saveFile;
 
 
 
     public void getStartingText() {
-        savefile = new File(folder, FILE_NAME);
-        if (savefile.exists() && !savefile.isFile())
+        saveFile = new File(folder, FILE_NAME);
+        if (saveFile.exists() && !saveFile.isFile())
             errorOccured(); // in case file name is already used falsely
         else {
-            if (!savefile.exists())
+            if (!saveFile.exists())
                 try {
-                    savefile.createNewFile();
+                    saveFile.createNewFile();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             else {
                 try {
 
-                    FileInputStream inputStream = new FileInputStream(savefile);
+                    BufferedReader inputStream = new BufferedReader(new InputStreamReader(new FileInputStream(saveFile), "UTF-8"));
 
                     String completeTxt = "";
-                    byte symbol;
-                    while ((symbol = (byte) inputStream.read()) != -1) {
-                        completeTxt += (char) symbol;
+                    String line = inputStream.readLine();
+                    while (line != null) {
+                        completeTxt += line + "\n";
+                        line = inputStream.readLine();
                     }
 
                     inputStream.close();
-                    editText.setText (completeTxt);
+                    editText.setText(completeTxt);
 
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -119,46 +122,7 @@ public class MainActivity extends AppCompatActivity {
             folder.mkdirs();
         else if(!folder.isDirectory())
             errorOccured(); // in case directory name is used falsely already
-
-
-
-
-        int start = 8;
-        int end = 20;
-        int hours = (end - start) % 24;
-
-        Calendar cal = Calendar.getInstance();
-        cal.set(Calendar.HOUR_OF_DAY, start);
-        cal.set(Calendar.MINUTE, 0);
-        cal.set(Calendar.SECOND, 0);
-        cal.set(Calendar.MILLISECOND, 0);
-
-        long startHourMilli = cal.getTimeInMillis();
-
-        cal.add(Calendar.HOUR_OF_DAY, hours);
-
-        long endHourMilli = cal.getTimeInMillis();
-
-
-
-        long currentMilli= System.currentTimeMillis();
-
-        if(currentMilli >= startHourMilli && currentMilli < endHourMilli){
-                View someView = findViewById(R.id.activity_main);
-                View root = someView.getRootView();
-                root.setBackgroundColor(ContextCompat.getColor(this, R.color.white));
-                editText.setTextColor(ContextCompat.getColor(this, R.color.black));
-                editText.setHintTextColor(ContextCompat.getColor(this, R.color.grey));
-            } else{
-                View someView = findViewById(R.id.activity_main);
-                View root = someView.getRootView();
-                root.setBackgroundColor(ContextCompat.getColor(this, R.color.grey));
-                editText.setTextColor(ContextCompat.getColor(this, R.color.white));
-                editText.setHintTextColor(ContextCompat.getColor(this, R.color.hintgrey));
-            }
     }
-
-
 
     @Override
     protected void onStart() {
@@ -167,9 +131,26 @@ public class MainActivity extends AppCompatActivity {
 
         getStartingText();
 
+        int start = 20;
+        int end = 8;
+
+        this.dayNightMode(Calendar.getInstance(), start, end);
     }
 
+    private void dayNightMode(Calendar cal, int startTime, int endTime){
+        int now = cal.get(Calendar.HOUR_OF_DAY);
+        if(now >= startTime || now < endTime)
+            this.setColours(ContextCompat.getColor(this, R.color.grey), ContextCompat.getColor(this, R.color.white));
+        else
+            this.setColours(ContextCompat.getColor(this, R.color.white), ContextCompat.getColor(this, R.color.black));
+    }
 
+    private void setColours(int bc, int tc){
+        View someView = findViewById(R.id.activity_main);
+        View root = someView.getRootView();
+        root.setBackgroundColor(bc);
+        editText.setTextColor(tc);
+    }
 
     private void errorOccured(){
         Toast.makeText(getApplicationContext(), "Error in your filesystem, please contact the developer :)", Toast.LENGTH_LONG).show();
@@ -181,9 +162,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause(){
         super.onPause();
         try {
-            OutputStream outputStream = new FileOutputStream(savefile);
+            OutputStreamWriter outputStream = new OutputStreamWriter(new FileOutputStream(saveFile), "UTF-8");
             String toWrite = (editText.getText() != null) ? editText.getText().toString() : "";
-            outputStream.write(toWrite.getBytes());
+            outputStream.write(toWrite, 0, toWrite.length());
             outputStream.close();
         } catch (IOException e) {
             e.printStackTrace();
