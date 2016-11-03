@@ -1,6 +1,7 @@
 package de.epolog.notizen;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
@@ -68,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
-        getMenuInflater().inflate(R.menu.menu, menu);         //activate when settings are ready
+        getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
 
@@ -79,20 +80,7 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.Options:
 
-                //startActivity(new Intent(MainActivity.this, SettingsActivity.class));          //input settings class here
-
-                AlertDialog alertDialog1 = new AlertDialog.Builder(MainActivity.this).create();
-                alertDialog1.setTitle("Info");
-                alertDialog1.setMessage("Einstellungen kommen bald");
-                alertDialog1.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-
-                        new DialogInterface.OnClickListener() {
-
-                            public void onClick(DialogInterface dialog1, int which) {
-                                dialog1.dismiss();
-                            }
-                        });
-                alertDialog1.show();
+                startActivity(new Intent(MainActivity.this, SettingsActivity.class));          //input settings class here
 
                 return super.onOptionsItemSelected(item);
 
