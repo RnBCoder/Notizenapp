@@ -1,8 +1,12 @@
 package de.epolog.notizen;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -12,7 +16,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-
+import java.util.Calendar;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -62,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-/*@Override
+    @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu, menu);         //activate when settings are ready
         return true;
@@ -77,14 +81,40 @@ public class MainActivity extends AppCompatActivity {
 
                 //startActivity(new Intent(MainActivity.this, SettingsActivity.class));          //input settings class here
 
+                AlertDialog alertDialog1 = new AlertDialog.Builder(MainActivity.this).create();
+                alertDialog1.setTitle("Info");
+                alertDialog1.setMessage("Einstellungen kommen bald");
+                alertDialog1.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+
+                        new DialogInterface.OnClickListener() {
+
+                            public void onClick(DialogInterface dialog1, int which) {
+                                dialog1.dismiss();
+                            }
+                        });
+                alertDialog1.show();
+
+                return super.onOptionsItemSelected(item);
+
             case R.id.Info:
 
-                // info msgbox
+                AlertDialog alertDialog2 = new AlertDialog.Builder(MainActivity.this).create();
+                alertDialog2.setTitle("Info");
+                alertDialog2.setMessage("App by Robert and Philipp");
+                alertDialog2.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+
+                        new DialogInterface.OnClickListener() {
+
+                            public void onClick(DialogInterface dialog2, int which) {
+                      dialog2.dismiss();
+        }
+    });
+                alertDialog2.show();
 
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }*/
+    }
 
 
 
@@ -104,11 +134,38 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        View someView = findViewById(R.id.activity_main);
-        View root = someView.getRootView();
-        root.setBackgroundColor(ContextCompat.getColor(this, R.color.white));
-        editText.setTextColor(ContextCompat.getColor(this, R.color.black));
 
+        int start = 8;
+        int end = 20;
+        int hours = (end - start) % 24;
+
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.HOUR_OF_DAY, start);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+
+        long startHourMilli = cal.getTimeInMillis();
+
+        cal.add(Calendar.HOUR_OF_DAY, hours);
+
+        long endHourMilli = cal.getTimeInMillis();
+
+
+
+        long currentMilli= System.currentTimeMillis();
+
+        if(currentMilli >= startHourMilli && currentMilli < endHourMilli){
+                View someView = findViewById(R.id.activity_main);
+                View root = someView.getRootView();
+                root.setBackgroundColor(ContextCompat.getColor(this, R.color.white));
+                editText.setTextColor(ContextCompat.getColor(this, R.color.black));
+            } else{
+                View someView = findViewById(R.id.activity_main);
+                View root = someView.getRootView();
+                root.setBackgroundColor(ContextCompat.getColor(this, R.color.grey));
+                editText.setTextColor(ContextCompat.getColor(this, R.color.white));
+            }
     }
 
 
@@ -119,23 +176,6 @@ public class MainActivity extends AppCompatActivity {
         getDelegate().onStart();
 
         getStartingText();
-
-
-        /*long startHourMilli = 28800000, endHourMilli = 72000000;
-        long currentMilli= System.currentTimeMillis();
-
-        if(currentMilli >= startHourMilli && currentMilli < endHourMilli){
-            View someView = findViewById(R.id.activity_main);
-            View root = someView.getRootView();
-            root.setBackgroundColor(ContextCompat.getColor(this, R.color.white));                   //does not work yet :(
-            editText.setTextColor(ContextCompat.getColor(this, R.color.black));
-        } else {
-            View someView = findViewById(R.id.activity_main);
-            View root = someView.getRootView();
-            root.setBackgroundColor(ContextCompat.getColor(this, R.color.grey));
-            editText.setTextColor(ContextCompat.getColor(this, R.color.white));
-        }*/
-
 
     }
 
