@@ -41,6 +41,7 @@ public class SettingsActivity extends AppCompatActivity {
         View someView = findViewById(R.id.activity_settings);
         View root = someView.getRootView();
         root.setBackgroundColor(bc);
+
     }
 
 
