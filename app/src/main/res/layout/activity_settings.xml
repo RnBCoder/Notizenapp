@@ -19,16 +19,28 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
-        <Switch
-            android:text="Tag-/Nachtmodus aktivieren    "
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/dayNightSwitch"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:checked="false"
-            android:layout_weight="0.00" />
+            android:weightSum="1">
+
+            <TextView
+                android:text="Tag-/Nachtmodus aktivieren    "
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/dnMode"
+                android:layout_weight="1.03" />
+
+            <Switch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/dayNightSwitch"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:checked="false" />
+        </LinearLayout>
 
         <LinearLayout
             android:orientation="vertical"
