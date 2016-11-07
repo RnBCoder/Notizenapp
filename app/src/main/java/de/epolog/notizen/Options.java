@@ -26,8 +26,17 @@ public class Options {
     private String bc2;
     private String tc2;
 
+    private File config;
+
+    public Options(){}
+
     public Options(File file) throws IOException {
-        BufferedReader input = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));
+        this.config = file;
+        this.load();
+    }
+
+    public void load() throws IOException {
+        BufferedReader input = new BufferedReader(new InputStreamReader(new FileInputStream(config), "UTF-8"));
         String line = input.readLine();
         while(line != null){
             int index = line.indexOf(':');
@@ -58,7 +67,10 @@ public class Options {
                 }
             }
         }
+    }
 
+    public void save(){
+        
     }
 
     public boolean isDnMode() {
