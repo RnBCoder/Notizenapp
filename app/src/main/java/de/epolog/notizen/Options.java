@@ -4,23 +4,25 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 
 public class Options {
 
-    public static final String DN_MODE_ID = "dnMode";
-    public static final String START_TIME_ID = "startTime";
-    public static final String END_TIME_ID = "endTime";
+    public static final String DN_MODE_ID = "dnM";
+    public static final String START_TIME_ID = "sT";
+    public static final String END_TIME_ID = "eT";
     public static final String BC1_ID = "bc1";
     public static final String TC1_ID = "tc1";
     public static final String BC2_ID = "bc2";
     public static final String TC2_ID = "tc2";
 
     private boolean dnMode;
-    private int startTime;
-    private int endTime;
+    private Integer startTime;
+    private Integer endTime;
     private String bc1;
     private String tc1;
     private String bc2;
@@ -67,10 +69,31 @@ public class Options {
                 }
             }
         }
+        input.close();
     }
 
-    public void save(){
-        
+    public void save() throws IOException {
+        String toWrite = "";
+        toWrite += createConfigLine(DN_MODE_ID, dnMode ? "true" : "false");
+        if(startTime != null)
+            toWrite += createConfigLine(START_TIME_ID, startTime + "");
+        if(endTime != null)
+            toWrite += createConfigLine(END_TIME_ID, endTime + "");
+        toWrite += createConfigLine(BC1_ID, bc1);
+        toWrite += createConfigLine(TC1_ID, tc1);
+        if(bc2 != null)
+            toWrite += createConfigLine(BC2_ID, bc2);
+        if(tc2 != null)
+            toWrite += createConfigLine(TC2_ID, tc2);
+
+        OutputStreamWriter output = new OutputStreamWriter(new FileOutputStream(config) ,"UTF-8");
+        output.write(toWrite, 0, toWrite.length());
+        output.close();
+    }
+
+    private String createConfigLine(String id, String value){
+        String toReturn = id + ":" + value + "\n";
+        return toReturn;
     }
 
     public boolean isDnMode() {
