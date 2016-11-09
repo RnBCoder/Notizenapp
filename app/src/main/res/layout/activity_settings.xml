@@ -34,7 +34,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/dnMode"
-                android:layout_weight="1.03"
+                android:layout_weight="0.92"
                 android:textSize="18sp" />
 
             <Switch
@@ -92,13 +92,14 @@
                     android:id="@+id/endHour" />
 
                 <EditText
-                    android:layout_width="wrap_content"
+                    android:layout_width="204dp"
                     android:layout_height="wrap_content"
                     android:inputType="numberDecimal"
                     android:ems="10"
                     android:id="@+id/endHourValue"
-                    android:hint="Morgens/ Endzeit"
-                    android:textColorHint="@color/hintgrey" />
+                    android:hint=" Morgens/ Endzeit"
+                    android:textColorHint="@color/hintgrey"
+                    android:layout_weight="0.32" />
 
                 <TextView
                     android:text="  Uhr"
