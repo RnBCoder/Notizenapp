@@ -56,7 +56,7 @@ public class SettingsActivity extends AppCompatActivity {
         View root = someView.getRootView();
         root.setBackgroundColor(bc);
 
-        EditText editText1 = (EditText) findViewById(R.id.starHourValue);
+        EditText editText1 = (EditText) findViewById(R.id.starHourValue);       //could be done better probably but iam too lazy :P
         EditText editText2 = (EditText) findViewById(R.id.endHourValue);
         editText1.setTextColor(tc);
         editText2.setTextColor(tc);
