@@ -9,7 +9,8 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="de.epolog.notizen.SettingsActivity"
-    android:label="Einstellungen">
+    android:label="Einstellungen"
+    tools:ignore="HardcodedText">
 
     <LinearLayout
         android:orientation="vertical"
@@ -18,7 +19,8 @@
         android:id="@+id/all"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        tools:ignore="UselessParent">
 
         <LinearLayout
             android:orientation="horizontal"
@@ -29,7 +31,7 @@
 
             <TextView
                 android:text="Tag-/Nachtmodus aktivieren    "
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/dnMode"
                 android:layout_weight="1.03"
@@ -39,9 +41,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/dayNightSwitch"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
                 android:checked="false" />
 
         </LinearLayout>
@@ -68,14 +67,16 @@
                     android:inputType="numberDecimal"
                     android:ems="10"
                     android:id="@+id/starHourValue"
-                    android:hint="Abends/ Startzeit" />
+                    android:hint="Abends/ Startzeit"
+                    tools:ignore="HardcodedText" />
 
                 <TextView
                     android:text="  Uhr"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:id="@+id/startClock" />
+                    android:id="@+id/startClock"
+                    tools:ignore="HardcodedText" />
             </LinearLayout>
 
             <LinearLayout
@@ -99,10 +100,11 @@
 
                 <TextView
                     android:text="  Uhr"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:id="@+id/endClock" />
+                    android:id="@+id/endClock"
+                    tools:ignore="HardcodedText" />
 
             </LinearLayout>
 
@@ -120,12 +122,10 @@
                 android:layout_width="match_parent"
                 android:id="@+id/dayModeHead"
                 android:textSize="18sp"
-                android:layout_below="@+id/dayNightSwitch"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
                 android:layout_marginTop="31dp"
                 android:textAlignment="viewStart"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"/>
 
             <LinearLayout
                 android:orientation="vertical"
@@ -151,7 +151,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/dmBcActual"
-                        android:layout_weight="0.17" />
+                        android:layout_weight="0.17"
+                        tools:ignore="HardcodedText" />
 
                     <Button
                         android:text="waehlen"
@@ -165,7 +166,7 @@
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:id="@+id/dmText"
                     android:layout_weight="0.05">
 
@@ -174,14 +175,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/dmTc"
-                        android:layout_weight="0.75" />
+                        android:layout_weight="0.75"
+                        tools:ignore="NestedWeights" />
 
                     <TextView
                         android:text="Actual"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/dmTcActual"
-                        android:layout_weight="1.62" />
+                        android:layout_weight="1.62"
+                        tools:ignore="HardcodedText" />
 
                     <Button
                         android:text="waehlen"
@@ -197,13 +200,11 @@
                 android:layout_width="match_parent"
                 android:id="@+id/nightModeHead"
                 android:textSize="18sp"
-                android:layout_below="@+id/dayNightSwitch"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
                 android:layout_marginTop="31dp"
                 android:textAlignment="viewStart"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.00" />
+                android:layout_weight="0.00"
+                android:layout_gravity="start"/>
 
             <LinearLayout
                 android:orientation="vertical"
@@ -231,7 +232,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/nmBcActual"
-                        android:layout_weight="0.91" />
+                        android:layout_weight="0.91"
+                        tools:ignore="HardcodedText" />
 
                     <Button
                         android:text="waehlen"
@@ -261,7 +263,8 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/nmTcActual"
                         android:layout_weight="0.70"
-                        android:text="Actual" />
+                        android:text="Actual"
+                        tools:ignore="HardcodedText" />
 
                     <Button
                         android:text="waehlen"
