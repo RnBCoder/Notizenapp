@@ -68,7 +68,8 @@
                     android:ems="10"
                     android:id="@+id/starHourValue"
                     android:hint="Abends/ Startzeit"
-                    tools:ignore="HardcodedText" />
+                    tools:ignore="HardcodedText"
+                    android:textColorHint="@color/hintgrey" />
 
                 <TextView
                     android:text="  Uhr"
@@ -96,7 +97,8 @@
                     android:inputType="numberDecimal"
                     android:ems="10"
                     android:id="@+id/endHourValue"
-                    android:hint="Morgens/ Endzeit" />
+                    android:hint="Morgens/ Endzeit"
+                    android:textColorHint="@color/hintgrey" />
 
                 <TextView
                     android:text="  Uhr"

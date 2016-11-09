@@ -140,16 +140,17 @@ public class MainActivity extends AppCompatActivity {
     private void dayNightMode(Calendar cal, int startTime, int endTime){
         int now = cal.get(Calendar.HOUR_OF_DAY);
         if(now >= startTime || now < endTime)
-            this.setColours(ContextCompat.getColor(this, R.color.grey), ContextCompat.getColor(this, R.color.white));
+            this.setColours(ContextCompat.getColor(this, R.color.grey), ContextCompat.getColor(this, R.color.white), ContextCompat.getColor(this, R.color.hintgrey));
         else
-            this.setColours(ContextCompat.getColor(this, R.color.white), ContextCompat.getColor(this, R.color.black));
+            this.setColours(ContextCompat.getColor(this, R.color.white), ContextCompat.getColor(this, R.color.black), ContextCompat.getColor(this, R.color.grey));
     }
 
-    private void setColours(int bc, int tc){
+    private void setColours(int bc, int tc, int hc){
         View someView = findViewById(R.id.activity_main);
         View root = someView.getRootView();
         root.setBackgroundColor(bc);
         editText.setTextColor(tc);
+        editText.setHintTextColor(hc);
     }
 
     private void errorOccured(){
