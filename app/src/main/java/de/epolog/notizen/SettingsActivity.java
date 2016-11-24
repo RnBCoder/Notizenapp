@@ -37,6 +37,7 @@ public class SettingsActivity extends AppCompatActivity {
         getDelegate().onStart();
 
 
+
         int start = 20;
         int end = 8;
 
