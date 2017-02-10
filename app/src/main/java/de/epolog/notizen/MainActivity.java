@@ -142,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
         if(now >= startTime || now < endTime)
             this.setColours(ContextCompat.getColor(this, R.color.grey), ContextCompat.getColor(this, R.color.white), ContextCompat.getColor(this, R.color.hintgrey));
         else
-            this.setColours(ContextCompat.getColor(this, R.color.white), ContextCompat.getColor(this, R.color.black), ContextCompat.getColor(this, R.color.grey));
+            this.setColours(ContextCompat.getColor(this, R.color.white), ContextCompat.getColor(this, R.color.black), ContextCompat.getColor(this, R.color.hintgrey2));
     }
 
     private void setColours(int bc, int tc, int hc){
