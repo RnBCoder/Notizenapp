@@ -158,11 +158,11 @@
                         tools:ignore="HardcodedText" />
 
                     <Button
-                        android:text="waehlen"
-                        android:layout_height="wrap_content"
                         android:id="@+id/dmBcButton"
-                        android:textAllCaps="false"
-                        android:layout_width="wrap_content" />
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="wählen"
+                        android:textAllCaps="false" />
 
                 </LinearLayout>
 
@@ -190,10 +190,10 @@
                         tools:ignore="HardcodedText" />
 
                     <Button
-                        android:text="waehlen"
+                        android:id="@+id/dmTcButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/dmTcButton"
+                        android:text="wählen"
                         android:textAllCaps="false" />
                 </LinearLayout>
             </LinearLayout>
@@ -239,10 +239,10 @@
                         tools:ignore="HardcodedText" />
 
                     <Button
-                        android:text="waehlen"
+                        android:id="@+id/nmBcButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/nmBcButton"
+                        android:text="wählen"
                         android:textAllCaps="false" />
 
                 </LinearLayout>
@@ -270,10 +270,10 @@
                         tools:ignore="HardcodedText" />
 
                     <Button
-                        android:text="waehlen"
+                        android:id="@+id/nmTcButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/nmTcButton"
+                        android:text="wählen"
                         android:textAllCaps="false" />
                 </LinearLayout>
             </LinearLayout>
