@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Notizen</string>
+    <string name="capital_on">Nachtmodus ausschalten</string>
+    <string name="capital_off">Nachtmodus einschalten</string>
+    <string name="hin_editText">Schreibe deine Gedanken hier auf</string>
 </resources>

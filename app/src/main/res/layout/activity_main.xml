@@ -13,13 +13,13 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:inputType="text|textMultiLine"
+        android:inputType="text|textMultiLine|textNoSuggestions"
         android:ems="10"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:maxLength="100"
         android:id="@+id/editText"
         android:textSize="18sp"
-        android:gravity="top" />
+        android:gravity="top"
+        android:hint="@string/hin_editText"/>
 </RelativeLayout>
